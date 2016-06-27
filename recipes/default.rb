@@ -16,8 +16,8 @@ end
 bash 'extract_nginx_openresty' do
   interpreter "bash"
   code <<-EOH
-    tar -xzf /opt/ngx_nginx_openresty-1.5.8.1.tar.gz -C #{nginx_openresty_install_dir}
-    rm -rf /opt/ngx_nginx_openresty-1.5.8.1.tar.gz
+    tar -xzf /opt/ngx_openresty-1.5.8.1.tar.gz -C #{nginx_openresty_install_dir}
+    rm -rf /opt/ngx_openresty-1.5.8.1.tar.gz
     mv #{nginx_openresty_install_dir}/ngx_openresty* #{nginx_openresty_install_dir}/ngx_openresty
     cd #{nginx_openresty_install_dir}/ngx_openresty
     ./configure --prefix=/opt/nginx_openresty --with-pcre-jit --with-pcre --with-http_ssl_module --with-luajit
