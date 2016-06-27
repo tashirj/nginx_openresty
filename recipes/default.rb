@@ -25,6 +25,7 @@ bash 'extract_nginx_openresty' do
     make install
     cd /opt/nginx_openresty/nginx/sbin/
     ./nginx -c ../conf/nginx.conf
+    unlink /etc/nginx
     ln -s /opt/nginx_openresty/nginx/conf /etc/nginx
     ./nginx -c conf/nginx.conf
     EOH
