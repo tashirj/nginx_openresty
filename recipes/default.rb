@@ -9,7 +9,7 @@
 nginx_openresty_install_dir=node[:nginx_openresty][:install_dir]
 
 execute 'nginx_openresty_package_download' do
-  command 'wget http://nginx_openresty.org/download/ngx_openresty-1.5.8.1.tar.gz'
+  command 'wget http://openresty.org/download/ngx_openresty-1.5.8.1.tar.gz'
   cwd '/opt/'
   not_if { File.exists?("/opt/ngx_nginx_openresty*") }
 end
