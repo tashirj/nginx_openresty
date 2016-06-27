@@ -30,7 +30,4 @@ bash 'extract_nginx_openresty' do
     EOH
   only_if { ::File.exists?(nginx_openresty_install_dir) }
 end
-execute 'set-env' do
-	command 'export PATH=$PATH:/opt/nginx_openresty/nginx/sbin'
-end
 
