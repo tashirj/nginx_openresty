@@ -1,2 +1,2 @@
-default[:openresty][:install_dir]="/opt"
+default[:nginx_openresty][:install_dir]="/opt"
 
