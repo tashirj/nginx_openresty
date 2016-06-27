@@ -9,7 +9,7 @@
 nginx_openresty_install_dir=node[:nginx_openresty][:install_dir]
 
 execute 'nginx_openresty_package_download' do
-  command 'wget http://nginx_openresty.org/download/ngx_nginx_openresty-1.5.8.1.tar.gz'
+  command 'wget http://nginx_openresty.org/download/ngx_openresty-1.5.8.1.tar.gz'
   cwd '/opt/'
   not_if { File.exists?("/opt/ngx_nginx_openresty*") }
 end
@@ -18,8 +18,8 @@ bash 'extract_nginx_openresty' do
   code <<-EOH
     tar -xzf /opt/ngx_nginx_openresty-1.5.8.1.tar.gz -C #{nginx_openresty_install_dir}
     rm -rf /opt/ngx_nginx_openresty-1.5.8.1.tar.gz
-    mv #{nginx_openresty_install_dir}/ngx_nginx_openresty* #{nginx_openresty_install_dir}/ngx_nginx_openresty
-    cd #{nginx_openresty_install_dir}/ngx_nginx_openresty
+    mv #{nginx_openresty_install_dir}/ngx_openresty* #{nginx_openresty_install_dir}/ngx_openresty
+    cd #{nginx_openresty_install_dir}/ngx_openresty
     ./configure --prefix=/opt/nginx_openresty --with-pcre-jit --with-pcre --with-http_ssl_module --with-luajit
     make
     make install
