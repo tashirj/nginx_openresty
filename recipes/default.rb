@@ -25,8 +25,7 @@ bash 'extract_nginx_openresty' do
     make install
     cd /opt/nginx_openresty/nginx/sbin/
     ./nginx -c ../conf/nginx.conf
-    unlink /etc/nginx
-    ln -s /etc/nginx /opt/nginx_openresty/nginx/conf
+    if [ ! -d /etc/nginx ]; then ln -s /opt/nginx_openresty/nginx/conf/ /etc/nginx > /dev/null 2>&1; fi
     ./nginx -c conf/nginx.conf
     EOH
   only_if { ::File.exists?(nginx_openresty_install_dir) }
